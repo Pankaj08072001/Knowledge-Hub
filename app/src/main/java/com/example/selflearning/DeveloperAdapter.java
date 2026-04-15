@@ -14,7 +14,8 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
 
     List<String> list;
 
-    public DeveloperAdapter(List<String> list) {
+    public
+    DeveloperAdapter(List<String> list) {
         this.list = list;
     }
 
@@ -28,7 +29,21 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.tv.setText(list.get(position));
+
+        // 🔥 Set background image based on position
+        if (position == 0) {
+            holder.itemView.setBackgroundResource(R.drawable.android);
+        } else if (position == 1) {
+            holder.itemView.setBackgroundResource(R.drawable.java);
+        } else if (position == 2) {
+            holder.itemView.setBackgroundResource(R.drawable.php);
+        } else if (position == 3) {
+            holder.itemView.setBackgroundResource(R.drawable.android);
+        }
+
+
     }
 
     @Override
