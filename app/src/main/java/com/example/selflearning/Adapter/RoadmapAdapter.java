@@ -1,4 +1,4 @@
-package com.example.selflearning;
+package com.example.selflearning.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +8,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.selflearning.Model.RoadmapModel;
+import com.example.selflearning.R;
+
 import java.util.List;
-public class MockAdapter extends RecyclerView.Adapter<MockAdapter.ViewHolder> {
 
-    List<String> list;
+public class RoadmapAdapter extends RecyclerView.Adapter<RoadmapAdapter.ViewHolder> {
 
-    public MockAdapter(List<String> list) {
+    List<RoadmapModel> list;
+
+    public RoadmapAdapter(List<RoadmapModel> list) {
         this.list = list;
     }
 
@@ -21,13 +25,17 @@ public class MockAdapter extends RecyclerView.Adapter<MockAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_mock, parent, false);
+                .inflate(R.layout.item_roadmap, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tv.setText(list.get(position));
+
+        RoadmapModel model = list.get(position);
+
+        holder.title.setText(model.getTitle());
+        holder.duration.setText(model.getDuration());
     }
 
     @Override
@@ -36,10 +44,11 @@ public class MockAdapter extends RecyclerView.Adapter<MockAdapter.ViewHolder> {
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tv;
+        TextView title, duration;
         ViewHolder(View v) {
             super(v);
-            tv = v.findViewById(R.id.tvMock);
+            title = v.findViewById(R.id.tvTitle);
+            duration = v.findViewById(R.id.tvDuration);
         }
     }
 }
