@@ -1,10 +1,13 @@
 package com.example.selflearning;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +18,7 @@ import com.example.selflearning.Model.DeveloperModel;
 import com.example.selflearning.Adapter.MockAdapter;
 import com.example.selflearning.Model.MockTest;
 import com.example.selflearning.Model.RoadmapModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +38,70 @@ public class MainActivity extends AppCompatActivity {
         RoadmapsTypeAdapter();
         MockTypeAdapter();
 
+        onBottomNavigationHandle();
+
+    }
+
+
+//    private void onBottomNavigationHandle() {
+//        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+//        bottomNav.setOnItemSelectedListener(item -> {
+//
+//            int id = item.getItemId();
+//
+//            if (id == R.id.nav_home) {
+//                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+//                return true;
+//
+//            } else if (id == R.id.nav_update) {
+//                Toast.makeText(this, "Update", Toast.LENGTH_SHORT).show();
+//                return true;
+//
+//            } else if (id == R.id.nav_profile) {
+//                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+//                return true;
+//            }
+//            return false;
+//        });
+//    }
+
+    private void onBottomNavigationHandle() {
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+
+        bottomNav.setOnItemSelectedListener(item ->
+
+        {
+
+            int id = item.getItemId();
+
+            if (id == R.id.nav_home) {
+                findViewById(R.id.fragment_container).setVisibility(View.GONE);
+               // findViewById(R.id.scrollView).setVisibility(View.VISIBLE);
+                return true;
+
+            } else if (id == R.id.nav_update) {
+                loadFragment(new UpdateFragment());
+                return true;
+
+            } else if (id == R.id.nav_profile) {
+                loadFragment(new ProfileFragment());
+                return true;
+            }
+
+            return false;
+        });
+
+    }
+
+    private void loadFragment(Fragment fragment) {
+
+       // findViewById(R.id.scrollView).setVisibility(View.GONE);
+        findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
     }
 
     private void setUpToolbar() {
@@ -55,8 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void developerTypeAdapter() {
         rvDev = findViewById(R.id.rvDeveloper);
-        rvDev.setLayoutManager(
-                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rvDev.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 //        rvDev.setAdapter(new DeveloperAdapter(Arrays.asList("Android", "Java", "PHP", "ML")));
         List<DeveloperModel> list = new ArrayList<>();
         list.add(new DeveloperModel("Android", R.drawable.android));
