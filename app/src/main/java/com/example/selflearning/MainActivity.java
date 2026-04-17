@@ -4,29 +4,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selflearning.Adapter.DeveloperAdapter;
 import com.example.selflearning.Adapter.RoadmapAdapter;
+import com.example.selflearning.Fragment.ProfileFragment;
+import com.example.selflearning.Fragment.UpdateFragment;
 import com.example.selflearning.Model.DeveloperModel;
 import com.example.selflearning.Adapter.MockAdapter;
 import com.example.selflearning.Model.MockTest;
 import com.example.selflearning.Model.RoadmapModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     RecyclerView rvDev, rvRoad, rvMock;
-
+    NavigationView navigationView;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,31 +43,44 @@ public class MainActivity extends AppCompatActivity {
         MockTypeAdapter();
 
         onBottomNavigationHandle();
+        setUpDrawer();
+        drawerItemHandle();
 
     }
 
+    private void drawerItemHandle() {
+        navigationView.setNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_home) {
+                Toast.makeText(this, "Drawer Home", Toast.LENGTH_SHORT).show();
+            } else if (item.getItemId() == R.id.nav_profile) {
+                Toast.makeText(this, "Drawer Profile", Toast.LENGTH_SHORT).show();
+            } else if (item.getItemId() == R.id.nav_roadmap) {
+                Toast.makeText(this, "Drawer Roadmap", Toast.LENGTH_SHORT).show();
+            } else if (item.getItemId() == R.id.nav_mock) {
+                Toast.makeText(this, "Drawer Mock", Toast.LENGTH_SHORT).show();
+            } else if (item.getItemId() == R.id.nav_logout) {
+                Toast.makeText(this, "Drawer Logout", Toast.LENGTH_SHORT).show();
+            }
+            drawerLayout.closeDrawers();
+            return true;
+        });
+    }
 
-//    private void onBottomNavigationHandle() {
-//        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-//        bottomNav.setOnItemSelectedListener(item -> {
-//
-//            int id = item.getItemId();
-//
-//            if (id == R.id.nav_home) {
-//                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
-//                return true;
-//
-//            } else if (id == R.id.nav_update) {
-//                Toast.makeText(this, "Update", Toast.LENGTH_SHORT).show();
-//                return true;
-//
-//            } else if (id == R.id.nav_profile) {
-//                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-//                return true;
-//            }
-//            return false;
-//        });
-//    }
+    private void setUpDrawer() {
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.navigationView);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.open_drawer, R.string.close_drawer);
+
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+    }
 
     private void onBottomNavigationHandle() {
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
@@ -76,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
             if (id == R.id.nav_home) {
                 findViewById(R.id.fragment_container).setVisibility(View.GONE);
-               // findViewById(R.id.scrollView).setVisibility(View.VISIBLE);
                 return true;
 
             } else if (id == R.id.nav_update) {
@@ -95,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment) {
 
-       // findViewById(R.id.scrollView).setVisibility(View.GONE);
+        // findViewById(R.id.scrollView).setVisibility(View.GONE);
         findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
 
         getSupportFragmentManager()
@@ -111,11 +127,9 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Knowledge Hub");
 
-            // ✅ Show hamburger (drawer) icon
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-            // Optional: replace default back icon with menu icon
             toolbar.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size);
             toolbar.setTitleTextColor(ContextCompat.getColor(this, android.R.color.white));
         }
@@ -124,7 +138,6 @@ public class MainActivity extends AppCompatActivity {
     private void developerTypeAdapter() {
         rvDev = findViewById(R.id.rvDeveloper);
         rvDev.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-//        rvDev.setAdapter(new DeveloperAdapter(Arrays.asList("Android", "Java", "PHP", "ML")));
         List<DeveloperModel> list = new ArrayList<>();
         list.add(new DeveloperModel("Android", R.drawable.android));
         list.add(new DeveloperModel("Java", R.drawable.java));
@@ -149,8 +162,7 @@ public class MainActivity extends AppCompatActivity {
     private void MockTypeAdapter() {
         rvMock = findViewById(R.id.rvMock);
 
-        rvMock.setLayoutManager(new GridLayoutManager(this, 2));
-//        rvMock.setAdapter(new MockAdapter(Arrays.asList("Android Mock", "Java Mock", "PHP Mock", "ML Mock")));
+        rvMock.setLayoutManager(new LinearLayoutManager(this));
 
         List<MockTest> testList = new ArrayList<>();
 
