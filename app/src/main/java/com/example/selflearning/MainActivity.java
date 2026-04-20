@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selflearning.Adapter.DeveloperAdapter;
 import com.example.selflearning.Adapter.RoadmapAdapter;
+import com.example.selflearning.Fragment.LogoutFragment;
 import com.example.selflearning.Fragment.ProfileFragment;
 import com.example.selflearning.Fragment.UpdateFragment;
 import com.example.selflearning.Model.DeveloperModel;
@@ -53,13 +54,14 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.nav_home) {
                 Toast.makeText(this, "Drawer Home", Toast.LENGTH_SHORT).show();
             } else if (item.getItemId() == R.id.nav_profile) {
-                Toast.makeText(this, "Drawer Profile", Toast.LENGTH_SHORT).show();
+                loadFragment(new ProfileFragment());
+//                Toast.makeText(this, "Drawer Profile", Toast.LENGTH_SHORT).show();
             } else if (item.getItemId() == R.id.nav_roadmap) {
                 Toast.makeText(this, "Drawer Roadmap", Toast.LENGTH_SHORT).show();
             } else if (item.getItemId() == R.id.nav_mock) {
                 Toast.makeText(this, "Drawer Mock", Toast.LENGTH_SHORT).show();
             } else if (item.getItemId() == R.id.nav_logout) {
-                Toast.makeText(this, "Drawer Logout", Toast.LENGTH_SHORT).show();
+                loadFragment(new LogoutFragment());
             }
             drawerLayout.closeDrawers();
             return true;
