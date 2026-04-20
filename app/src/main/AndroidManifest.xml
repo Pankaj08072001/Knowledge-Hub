@@ -11,10 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.SelfLearning">
-<!--        <activity-->
-<!--            android:name=".SplashActivity"-->
-<!--            android:exported="false">-->
-<!--        </activity>-->
+
+        <activity
+            android:name=".AndroidActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DefaultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PhpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".JavaActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".SplashActivity" -->
+        <!-- android:exported="false"> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
