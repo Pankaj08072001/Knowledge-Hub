@@ -17,8 +17,17 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
 
     List<DeveloperModel> list;
 
-    public DeveloperAdapter(List<DeveloperModel> list) {
+    // ✅ Click Listener
+    public interface OnItemClickListener {
+        void onItemClick(DeveloperModel model);
+    }
+
+    private OnItemClickListener listener;
+
+    // ✅ Updated constructor
+    public DeveloperAdapter(List<DeveloperModel> list, OnItemClickListener listener) {
         this.list = list;
+        this.listener = listener;
     }
 
     @NonNull
@@ -36,37 +45,14 @@ public class DeveloperAdapter extends RecyclerView.Adapter<DeveloperAdapter.View
 
         holder.tv.setText(model.getName());
         holder.itemView.setBackgroundResource(model.getBgImage());
-    }
 
-//    @Override
-//    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//
-//        holder.itemView.setBackgroundResource(backgrounds[position]);
-//
-////        holder.tv.setText(list.get(position));
-//
-////        switch (position) {
-////            case 0:
-////                holder.itemView.setBackgroundResource(R.drawable.android);
-////                break;
-////
-////            case 1:
-////                holder.itemView.setBackgroundResource(R.drawable.java);
-////                break;
-////
-////            case 2:
-////                holder.itemView.setBackgroundResource(R.drawable.php);
-////                break;
-////
-////            case 3:
-////                holder.itemView.setBackgroundResource(R.drawable.android);
-////                break;
-////
-////            default:
-////                holder.itemView.setBackgroundResource(R.drawable.default_bg);
-////                break;
-////        }
-//    }
+        // ✅ Item Click
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(model);
+            }
+        });
+    }
 
     @Override
     public int getItemCount() {
