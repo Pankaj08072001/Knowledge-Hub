@@ -1,5 +1,6 @@
 package com.example.selflearning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -138,15 +139,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void developerTypeAdapter() {
+
         rvDev = findViewById(R.id.rvDeveloper);
-        rvDev.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        rvDev.setLayoutManager(
+                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        );
+
         List<DeveloperModel> list = new ArrayList<>();
         list.add(new DeveloperModel("Android", R.drawable.android));
         list.add(new DeveloperModel("Java", R.drawable.java));
         list.add(new DeveloperModel("PHP", R.drawable.php));
         list.add(new DeveloperModel("ML", R.drawable.android));
 
-        rvDev.setAdapter(new DeveloperAdapter(list));
+        DeveloperAdapter adapter = new DeveloperAdapter(list, model -> {
+
+            Intent intent;
+
+            switch (model.getName()) {
+                case "Android":
+                    intent = new Intent(MainActivity.this, AndroidActivity.class);
+                    break;
+
+                case "Java":
+                    intent = new Intent(MainActivity.this, JavaActivity.class);
+                    break;
+
+                case "PHP":
+                    intent = new Intent(MainActivity.this, PhpActivity.class);
+                    break;
+
+                default:
+                    intent = new Intent(MainActivity.this, DefaultActivity.class);
+                    break;
+            }
+
+            startActivity(intent);
+        });
+
+        rvDev.setAdapter(adapter);
     }
 
     private void RoadmapsTypeAdapter() {
@@ -176,4 +206,6 @@ public class MainActivity extends AppCompatActivity {
         rvMock.setAdapter(new MockAdapter(testList));
 
     }
+
+
 }
