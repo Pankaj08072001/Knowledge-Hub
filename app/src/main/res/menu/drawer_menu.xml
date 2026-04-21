@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile"/>
+
+    <item
+        android:id="@+id/nav_roadmap"
+        android:title="Roadmaps"
+        android:icon="@drawable/ic_roadmap"/>
+
+    <item
+        android:id="@+id/nav_mock"
+        android:title="Mock Tests"
+        android:icon="@drawable/ic_test"/>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/ic_logout"/>
+
+</menu>
