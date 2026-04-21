@@ -13,16 +13,16 @@
         android:theme="@style/Theme.SelfLearning">
 
         <activity
-            android:name=".AndroidActivity"
+            android:name=".Activity.AndroidActivity"
             android:exported="false" />
         <activity
-            android:name=".DefaultActivity"
+            android:name=".Activity.DefaultActivity"
             android:exported="false" />
         <activity
-            android:name=".PhpActivity"
+            android:name=".Activity.PhpActivity"
             android:exported="false" />
         <activity
-            android:name=".JavaActivity"
+            android:name=".Activity.JavaActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".SplashActivity" -->
         <!-- android:exported="false"> -->
