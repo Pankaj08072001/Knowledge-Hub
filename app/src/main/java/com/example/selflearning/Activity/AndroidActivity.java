@@ -1,8 +1,11 @@
 package com.example.selflearning.Activity;
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
@@ -47,32 +50,20 @@ public class AndroidActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-            setToolbarTitleColor(toolbar);
-            setBackArrowColor(toolbar, android.R.color.white); // change color here
-            handleBackClick(toolbar);
         }
+
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setNavigationIconTint(Color.WHITE);
+
+
     }
 
-    private void setToolbarTitleColor(MaterialToolbar toolbar) {
-        toolbar.setTitleTextColor(
-                ContextCompat.getColor(this, android.R.color.white)
-        );
-    }
-
-    private void setBackArrowColor(MaterialToolbar toolbar, int color) {
-
-        Drawable upArrow = ContextCompat.getDrawable(
-                this,
-                androidx.appcompat.R.drawable.abc_ic_ab_back_material
-        );
-
-        if (upArrow != null) {
-            upArrow.setTint(ContextCompat.getColor(this, color));
-            toolbar.setNavigationIcon(upArrow);
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getOnBackPressedDispatcher();
+            return true;
         }
-    }
-
-    private void handleBackClick(MaterialToolbar toolbar) {
-        toolbar.setNavigationOnClickListener(v -> onBackPressed());
+        return super.onOptionsItemSelected(item);
     }
 }
