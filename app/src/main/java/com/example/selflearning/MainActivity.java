@@ -80,9 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(toolbar);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, toolbar,
-                R.string.open_drawer, R.string.close_drawer);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_drawer, R.string.close_drawer);
 
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -121,10 +119,7 @@ public class MainActivity extends AppCompatActivity {
         // findViewById(R.id.scrollView).setVisibility(View.GONE);
         findViewById(R.id.fragment_container).setVisibility(View.VISIBLE);
 
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_container, fragment)
-                .commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment).commit();
     }
 
     private void setUpToolbar() {
@@ -145,15 +140,13 @@ public class MainActivity extends AppCompatActivity {
     private void developerTypeAdapter() {
 
         rvDev = findViewById(R.id.rvDeveloper);
-        rvDev.setLayoutManager(
-                new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        );
+        rvDev.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         List<DeveloperModel> list = new ArrayList<>();
-        list.add(new DeveloperModel("Android", R.drawable.android));
-        list.add(new DeveloperModel("Java", R.drawable.java));
-        list.add(new DeveloperModel("PHP", R.drawable.php));
-        list.add(new DeveloperModel("ML", R.drawable.android));
+        list.add(new DeveloperModel("", R.drawable.android));
+        list.add(new DeveloperModel("", R.drawable.java));
+        list.add(new DeveloperModel("", R.drawable.php));
+        list.add(new DeveloperModel("", R.drawable.android));
 
         DeveloperAdapter adapter = new DeveloperAdapter(list, model -> {
 
