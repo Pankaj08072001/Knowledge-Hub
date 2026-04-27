@@ -1,5 +1,6 @@
 package com.example.selflearning.Activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import androidx.core.content.ContextCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.selflearning.Adapter.ViewPagerAdapter;
+import com.example.selflearning.MainActivity;
 import com.example.selflearning.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.tabs.TabLayout;
@@ -30,8 +32,7 @@ public class PhpActivity extends AppCompatActivity {
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
 
-        viewPager.setAdapter(new ViewPagerAdapter(this));
-        viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        viewPager.setAdapter(new ViewPagerAdapter(this, "php"));
 
         new TabLayoutMediator(tabLayout, viewPager,
                 (tab, position) -> {
