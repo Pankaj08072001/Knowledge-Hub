@@ -30,7 +30,7 @@ public class AndroidActivity extends AppCompatActivity {
         ViewPager2 viewPager = findViewById(R.id.viewPager);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
 
-        viewPager.setAdapter(new ViewPagerAdapter(this));
+        viewPager.setAdapter(new ViewPagerAdapter(this,"Android"));
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
 
         new TabLayoutMediator(tabLayout, viewPager,

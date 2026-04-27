@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.selflearning.Adapter.TechAdapter;
@@ -34,17 +33,14 @@ public class LearningFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_learning_list, container, false);
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
-        String type = getArguments().getString(KEY_TYPE);
+        String type = getArguments() != null ? getArguments().getString(KEY_TYPE) : "JAVA";
 
         List<String> list = getStrings(type);
 
         recyclerView.setAdapter(new TechAdapter(list));
-//
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-//        recyclerView.setAdapter(new TechAdapter(list));
-//
+
         return view;
     }
 
@@ -52,21 +48,39 @@ public class LearningFragment extends Fragment {
     private static List<String> getStrings(String type) {
         List<String> list = new ArrayList<>();
 
-        if (type.equals("UIUX")) {
-            list.add("XML Layouts");
-            list.add("Material Design");
-            list.add("ConstraintLayout");
-            list.add("RecyclerView");
-            list.add("Navigation Component");
-            list.add("Animations");
-        } else {
-            list.add("Room Database");
-            list.add("SQLite");
-            list.add("Retrofit API");
-            list.add("MVVM Architecture");
-            list.add("Firebase");
-            list.add("Dependency Injection (Hilt)");
+        switch (type) {
+
+            case "JAVA":
+                list.add("OOP Concepts");
+                list.add("Collections Framework");
+                list.add("Exception Handling");
+                list.add("Multithreading");
+                list.add("JDBC");
+                list.add("Servlets & JSP");
+                break;
+
+            case "PHP":
+                list.add("PHP Basics");
+                list.add("Laravel Framework");
+                list.add("Sessions & Cookies");
+                list.add("Form Handling");
+                list.add("MySQL with PHP");
+                list.add("REST API in PHP");
+                break;
+
+            case "ANDROID":
+                list.add("XML Layouts");
+                list.add("RecyclerView");
+                list.add("ConstraintLayout");
+                list.add("Navigation Component");
+                list.add("Animations");
+                list.add("Material Design");
+                break;
+
+            default:
+                list.add("Coming Soon...");
         }
+
         return list;
     }
 }

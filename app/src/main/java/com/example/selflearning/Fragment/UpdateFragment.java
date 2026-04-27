@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.selflearning.Adapter.RoadmapAdapter;
 import com.example.selflearning.R;
 import com.example.selflearning.Model.UpdateModel;
 
@@ -49,8 +50,29 @@ public class UpdateFragment extends Fragment {
         list.add(new UpdateModel("Android", "Learn Android Development"));
         list.add(new UpdateModel("Java", "Master Core Java"));
         list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
+        list.add(new UpdateModel("Android", "Learn Android Development"));
+        list.add(new UpdateModel("Java", "Master Core Java"));
+        list.add(new UpdateModel("DSA", "Practice Data Structures"));
 
-        UpdateAdapter adapter = new UpdateAdapter(list);
+        RoadmapAdapter.UpdateAdapter adapter = new RoadmapAdapter.UpdateAdapter(list);
         recyclerView.setAdapter(adapter);
     }
 }
