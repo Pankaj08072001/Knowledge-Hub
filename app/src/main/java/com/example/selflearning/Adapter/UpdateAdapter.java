@@ -1,4 +1,4 @@
-package com.example.selflearning.Fragment;
+package com.example.selflearning.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
