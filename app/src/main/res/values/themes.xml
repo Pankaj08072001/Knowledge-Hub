@@ -24,4 +24,17 @@
         <item name="textAllCaps">true</item>
     </style>
 
+    <style name="TextAppearance.NavItem.Active" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.04</item>
+    </style>
+
+    <style name="TextAppearance.NavItem.Inactive" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
 </resources>
