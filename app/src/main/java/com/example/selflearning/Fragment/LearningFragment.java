@@ -50,35 +50,27 @@ public class LearningFragment extends Fragment {
 
         switch (type) {
 
-            case "JAVA":
-                list.add("OOP Concepts");
-                list.add("Collections Framework");
-                list.add("Exception Handling");
-                list.add("Multithreading");
-                list.add("JDBC");
-                list.add("Servlets & JSP");
+            case "BACKEND":
+                list.add("Java Spring Boot");
+                list.add("Node.js");
+                list.add("Python Django");
+                list.add("Database Design");
+                list.add("RESTful APIs");
+                list.add("Microservices");
                 break;
 
-            case "PHP":
-                list.add("PHP Basics");
-                list.add("Laravel Framework");
-                list.add("Sessions & Cookies");
-                list.add("Form Handling");
-                list.add("MySQL with PHP");
-                list.add("REST API in PHP");
-                break;
-
-            case "ANDROID":
-                list.add("XML Layouts");
-                list.add("RecyclerView");
-                list.add("ConstraintLayout");
-                list.add("Navigation Component");
-                list.add("Animations");
-                list.add("Material Design");
+            case "UIUX":
+                list.add("Figma Basics");
+                list.add("User Research");
+                list.add("Wireframe");
+                list.add("Prototyping");
+                list.add("Color Theory");
+                list.add("Typography");
                 break;
 
             default:
                 list.add("Coming Soon...");
+                break;
         }
 
         return list;
