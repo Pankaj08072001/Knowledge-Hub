@@ -5,12 +5,12 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F9FB"
-    tools:openDrawer="start">
+    android:background="#F0F2F8"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <!-- Main Content -->
         <LinearLayout
@@ -19,47 +19,90 @@
             android:layout_above="@id/bottomNav"
             android:orientation="vertical">
 
-            <!-- 🔵 APP BAR -->
+            <!-- Gradient App Bar -->
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/material_dynamic_primary40"
-                android:fitsSystemWindows="true">
+                android:background="@drawable/bg_profile_header"
+                android:fitsSystemWindows="true"
+                app:elevation="0dp">
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     android:title="Developer Hub"
                     android:titleTextColor="@android:color/white" />
+
+                <!-- Hero caption -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="36dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:letterSpacing="0.05"
+                        android:text="Welcome, Developer"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="42dp"
+                        android:layout_height="3dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@drawable/bg_divider_gold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:alpha="0.85"
+                        android:text="Pick a path. Master the craft."
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp" />
+                </LinearLayout>
             </com.google.android.material.appbar.AppBarLayout>
 
             <!-- Scroll Area -->
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fillViewport="true">
+                android:clipToPadding="false"
+                android:fillViewport="true"
+                android:paddingBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:paddingStart="14dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="14dp">
 
-                    <!-- SECTION 1 -->
+                    <!-- SECTION 1 — Developer Type -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp">
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="14dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="12dp">
+                            android:padding="16dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -67,41 +110,59 @@
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
+                                <View
+                                    android:layout_width="4dp"
+                                    android:layout_height="22dp"
+                                    android:background="@drawable/bg_divider_gold" />
+
                                 <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_marginStart="10dp"
                                     android:layout_marginEnd="8dp"
-                                    android:src="@drawable/ic_developer" />
+                                    android:src="@drawable/ic_developer"
+                                    app:tint="#1A237E" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="serif"
                                     android:text="Choose Developer Type"
-                                    android:textSize="18sp"
+                                    android:textColor="#1A237E"
+                                    android:textSize="17sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="12dp"
+                                android:background="#E0E3EA" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rvDeveloper"
                                 android:layout_width="match_parent"
                                 android:layout_height="120dp"
-                                android:layout_marginTop="8dp" />
+                                android:layout_marginTop="10dp"
+                                android:clipToPadding="false"
+                                android:overScrollMode="never" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- SECTION 2 -->
+                    <!-- SECTION 2 — Mock Tests -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp">
+                        android:layout_marginBottom="14dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="12dp">
+                            android:padding="16dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -109,40 +170,73 @@
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
+                                <View
+                                    android:layout_width="4dp"
+                                    android:layout_height="22dp"
+                                    android:background="@drawable/bg_divider_gold" />
+
                                 <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_marginStart="10dp"
                                     android:layout_marginEnd="8dp"
-                                    android:src="@drawable/ic_test" />
+                                    android:src="@drawable/ic_test"
+                                    app:tint="#1A237E" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="serif"
                                     android:text="Mock Tests"
-                                    android:textSize="18sp"
+                                    android:textColor="#1A237E"
+                                    android:textSize="17sp"
                                     android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:alpha="0.6"
+                                    android:fontFamily="serif"
+                                    android:text="practice"
+                                    android:textColor="#1A237E"
+                                    android:textSize="11sp"
+                                    android:textStyle="italic" />
                             </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="12dp"
+                                android:background="#E0E3EA" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rvMock"
                                 android:layout_width="match_parent"
                                 android:layout_height="300dp"
-                                android:layout_marginTop="8dp" />
+                                android:layout_marginTop="10dp"
+                                android:clipToPadding="false"
+                                android:overScrollMode="never" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
 
-                    <!-- SECTION 3 -->
+                    <!-- SECTION 3 — Roadmaps -->
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:cardCornerRadius="12dp"
-                        app:cardElevation="4dp">
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:padding="12dp">
+                            android:padding="16dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -150,28 +244,59 @@
                                 android:gravity="center_vertical"
                                 android:orientation="horizontal">
 
+                                <View
+                                    android:layout_width="4dp"
+                                    android:layout_height="22dp"
+                                    android:background="@drawable/bg_divider_gold" />
+
                                 <ImageView
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
+                                    android:layout_width="22dp"
+                                    android:layout_height="22dp"
+                                    android:layout_marginStart="10dp"
                                     android:layout_marginEnd="8dp"
-                                    android:src="@drawable/ic_roadmap" />
+                                    android:src="@drawable/ic_roadmap"
+                                    app:tint="#1A237E" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="serif"
                                     android:text="Developer Roadmaps"
-                                    android:textSize="18sp"
+                                    android:textColor="#1A237E"
+                                    android:textSize="17sp"
                                     android:textStyle="bold" />
+
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="1dp"
+                                    android:layout_weight="1" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:alpha="0.6"
+                                    android:fontFamily="serif"
+                                    android:text="explore"
+                                    android:textColor="#1A237E"
+                                    android:textSize="11sp"
+                                    android:textStyle="italic" />
                             </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="12dp"
+                                android:background="#E0E3EA" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/rvRoadmap"
                                 android:layout_width="match_parent"
                                 android:layout_height="300dp"
-                                android:layout_marginTop="8dp" />
+                                android:layout_marginTop="10dp"
+                                android:clipToPadding="false"
+                                android:overScrollMode="never" />
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
-
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
@@ -190,19 +315,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/white"
+            android:background="@drawable/bg_bottom_nav"
+            android:elevation="12dp"
             android:fitsSystemWindows="true"
+            app:itemIconTint="@color/nav_item_color"
+            app:itemTextColor="@color/nav_item_color"
+            app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_navigation_item" />
 
     </RelativeLayout>
 
-
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
-        android:layout_width="280dp"
+        android:layout_width="296dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="@android:color/white"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
         app:menu="@menu/drawer_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
