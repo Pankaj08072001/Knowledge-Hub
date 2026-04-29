@@ -16,4 +16,12 @@
         <item name="navigationIconTint">@android:color/white</item>
     </style>
 
+    <style name="TextAppearance.AndroidTab" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
 </resources>
