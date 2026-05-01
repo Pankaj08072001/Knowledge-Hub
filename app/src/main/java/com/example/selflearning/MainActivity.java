@@ -253,8 +253,15 @@ public class MainActivity extends AppCompatActivity {
         testList.add(new MockTest("Java Mock"));
         testList.add(new MockTest("PHP Mock"));
         testList.add(new MockTest("ML Learning"));
+        testList.add(new MockTest("Kotlin Mock"));
+        testList.add(new MockTest("Python Mock"));
+        testList.add(new MockTest("DSA Mock"));
 
-        rvMock.setAdapter(new MockAdapter(testList));
+        MockAdapter adapter = new MockAdapter(testList, (model, position) -> {
+            Toast.makeText(MainActivity.this, "Starting: " + model.getTest(), Toast.LENGTH_SHORT).show();
+        });
+
+        rvMock.setAdapter(adapter);
 
     }
 
