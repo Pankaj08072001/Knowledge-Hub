@@ -1,0 +1,29 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Sun half (left): rays + half-disc -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,7c-2.76,0 -5,2.24 -5,5s2.24,5 5,5V7z" />
+
+    <!-- Sun rays -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M5.5,12L3,12 M12,5L12,3 M6.7,6.7L5.3,5.3 M6.7,17.3L5.3,18.7 M12,21L12,19"
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1.6"
+        android:strokeLineCap="round" />
+
+    <!-- Moon half (right): crescent shape -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,7v10c2.76,0 5,-2.24 5,-5c0,-1.65 -0.8,-3.11 -2.04,-4.02C14.5,7.36 13.29,7 12,7z M14.2,9.4c0.65,0.71 1.05,1.66 1.05,2.7c0,2.07 -1.6,3.76 -3.62,3.94c1.5,-1.04 2.49,-2.78 2.49,-4.74C14.12,10.55 14.16,9.97 14.2,9.4z" />
+
+    <!-- Vertical divider line -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M11.7,4h0.6v16h-0.6z" />
+</vector>

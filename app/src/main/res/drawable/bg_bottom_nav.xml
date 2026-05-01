@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Outer gold frame -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFD54F" />
+            <corners android:radius="22dp" />
+        </shape>
+    </item>
+
+    <!-- Inner indigo body (creates the gold border via inset) -->
+    <item
+        android:bottom="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:top="2dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="135"
+                android:startColor="#1A237E"
+                android:centerColor="#283593"
+                android:endColor="#3949AB"
+                android:type="linear" />
+            <corners android:radius="20dp" />
+        </shape>
+    </item>
+
+    <!-- Inner thin gold pinstripe -->
+    <item
+        android:bottom="6dp"
+        android:left="6dp"
+        android:right="6dp"
+        android:top="6dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+            <stroke
+                android:width="1dp"
+                android:color="#66FFD54F" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+
+    <!-- Gold ornamental crest dots at top center -->
+    <item
+        android:gravity="top|center_horizontal"
+        android:top="8dp">
+        <shape android:shape="rectangle">
+            <size
+                android:width="24dp"
+                android:height="3dp" />
+            <solid android:color="#FFD54F" />
+            <corners android:radius="2dp" />
+        </shape>
+    </item>
+
+</layer-list>
