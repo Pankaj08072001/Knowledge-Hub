@@ -17,10 +17,20 @@ import java.util.List;
 
 public class RoadmapAdapter extends RecyclerView.Adapter<RoadmapAdapter.ViewHolder> {
 
+    public interface OnRoadmapClickListener {
+        void onRoadmapClick(RoadmapModel model, int position);
+    }
+
     List<RoadmapModel> list;
+    private OnRoadmapClickListener listener;
 
     public RoadmapAdapter(List<RoadmapModel> list) {
         this.list = list;
+    }
+
+    public RoadmapAdapter(List<RoadmapModel> list, OnRoadmapClickListener listener) {
+        this.list = list;
+        this.listener = listener;
     }
 
     @NonNull
@@ -38,6 +48,12 @@ public class RoadmapAdapter extends RecyclerView.Adapter<RoadmapAdapter.ViewHold
 
         holder.title.setText(model.getTitle());
         holder.duration.setText(model.getDuration());
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onRoadmapClick(model, holder.getAdapterPosition());
+            }
+        });
     }
 
     @Override
