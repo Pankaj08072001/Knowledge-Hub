@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -18,10 +20,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.selflearning.Activity.AndroidActivity;
-import com.example.selflearning.Activity.DefaultActivity;
-import com.example.selflearning.Activity.JavaActivity;
-import com.example.selflearning.Activity.PhpActivity;
+import com.example.selflearning.Activity.DeveloperDetailActivity;
+import com.example.selflearning.Activity.MockTestActivity;
+import com.example.selflearning.Activity.RoadmapDetailActivity;
 import com.example.selflearning.Adapter.DeveloperAdapter;
 import com.example.selflearning.Adapter.RoadmapAdapter;
 import com.example.selflearning.Fragment.LogoutFragment;
@@ -203,27 +204,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new DeveloperModel("", R.drawable.android));
 
         DeveloperAdapter adapter = new DeveloperAdapter(list, model -> {
-
-            Intent intent;
-
-            switch (model.getName()) {
-                case "Android":
-                    intent = new Intent(MainActivity.this, AndroidActivity.class);
-                    break;
-
-                case "Java":
-                    intent = new Intent(MainActivity.this, JavaActivity.class);
-                    break;
-
-                case "PHP":
-                    intent = new Intent(MainActivity.this, PhpActivity.class);
-                    break;
-
-                default:
-                    intent = new Intent(MainActivity.this, DefaultActivity.class);
-                    break;
-            }
-
+            Intent intent = new Intent(MainActivity.this, DeveloperDetailActivity.class);
+            intent.putExtra(DeveloperDetailActivity.EXTRA_DEV_NAME, model.getName());
             startActivity(intent);
         });
 
@@ -239,7 +221,30 @@ public class MainActivity extends AppCompatActivity {
         roadList.add(new RoadmapModel("Java Roadmap", "2 Months"));
         roadList.add(new RoadmapModel("PHP Roadmap", "3 Months"));
         roadList.add(new RoadmapModel("ML Roadmap", "2 Months"));
-        rvRoad.setAdapter(new RoadmapAdapter(roadList));
+
+        rvRoad.setAdapter(new RoadmapAdapter(roadList, (model, position) -> {
+            Intent intent = new Intent(MainActivity.this, RoadmapDetailActivity.class);
+            intent.putExtra(RoadmapDetailActivity.EXTRA_ROADMAP_TITLE, model.getTitle());
+            intent.putExtra(RoadmapDetailActivity.EXTRA_ROADMAP_DURATION, model.getDuration());
+            startActivity(intent);
+        }));
+    }
+
+    public void onTextPop(View v) {
+        playTapAnim(v, R.anim.text_tap_pop);
+    }
+
+    public void onTextWiggle(View v) {
+        playTapAnim(v, R.anim.text_tap_wiggle);
+    }
+
+    public void onTextBounce(View v) {
+        playTapAnim(v, R.anim.text_tap_bounce);
+    }
+
+    private void playTapAnim(View v, int animRes) {
+        Animation anim = AnimationUtils.loadAnimation(this, animRes);
+        v.startAnimation(anim);
     }
 
     private void MockTypeAdapter() {
@@ -256,9 +261,18 @@ public class MainActivity extends AppCompatActivity {
         testList.add(new MockTest("Kotlin Mock"));
         testList.add(new MockTest("Python Mock"));
         testList.add(new MockTest("DSA Mock"));
+        testList.add(new MockTest("HTML Mock"));
+        testList.add(new MockTest("CSS Mock"));
+        testList.add(new MockTest("JAVASCRIPT Mock"));
+        testList.add(new MockTest("AI Learning"));
+        testList.add(new MockTest("REACT Mock"));
+        testList.add(new MockTest("DJANGO Mock"));
+        testList.add(new MockTest("FLUTTER" + " Mock"));
 
         MockAdapter adapter = new MockAdapter(testList, (model, position) -> {
-            Toast.makeText(MainActivity.this, "Starting: " + model.getTest(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, MockTestActivity.class);
+            intent.putExtra(MockTestActivity.EXTRA_TEST_NAME, model.getTest());
+            startActivity(intent);
         });
 
         rvMock.setAdapter(adapter);
