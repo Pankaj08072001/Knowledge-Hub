@@ -2,37 +2,45 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/nav_home"
-        android:title="Home"
-        android:icon="@drawable/ic_home"/>
+    <item android:title="Discover">
+        <menu>
+            <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_home"
+                android:title="Home" />
 
-    <item
-        android:id="@+id/nav_day_night"
-        android:title="Night Mode"
-        app:actionViewClass="android.widget.Switch"
-        android:icon="@drawable/ic_day_night" />
+            <item
+                android:id="@+id/nav_roadmap"
+                android:icon="@drawable/ic_roadmap"
+                android:title="Roadmaps"
+                app:actionLayout="@layout/menu_badge_count" />
 
-    <item
-        android:id="@+id/nav_profile"
-        android:title="Profile"
-        android:icon="@drawable/ic_profile"/>
+            <item
+                android:id="@+id/nav_mock"
+                android:icon="@drawable/ic_test"
+                android:title="Mock Tests"
+                app:actionLayout="@layout/menu_badge_new" />
+        </menu>
+    </item>
 
-    <item
-        android:id="@+id/nav_roadmap"
-        android:title="Roadmaps"
-        android:icon="@drawable/ic_roadmap"/>
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/nav_profile"
+                android:icon="@drawable/ic_profile"
+                android:title="Profile" />
 
-    <item
-        android:id="@+id/nav_mock"
-        android:title="Mock Tests"
-        android:icon="@drawable/ic_test"/>
+            <item
+                android:id="@+id/nav_day_night"
+                android:icon="@drawable/ic_day_night"
+                android:title="Night Mode"
+                app:actionViewClass="android.widget.Switch" />
 
-    <item
-        android:id="@+id/nav_logout"
-        android:title="Logout"
-        android:icon="@drawable/ic_logout"/>
-
-
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Logout" />
+        </menu>
+    </item>
 
 </menu>
