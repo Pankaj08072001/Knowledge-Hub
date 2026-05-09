@@ -23,6 +23,15 @@
             android:exported="false" />
         <activity
             android:name=".Activity.JavaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.MockTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DeveloperDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.RoadmapDetailActivity"
             android:exported="false" /> <!-- <activity -->
         <!-- android:name=".SplashActivity" -->
         <!-- android:exported="false"> -->
