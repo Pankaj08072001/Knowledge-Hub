@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="#F5F5F5"
+    android:background="@color/update_item_bg"
     android:layout_margin="5dp">
 
     <TextView
