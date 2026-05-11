@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F2F8">
+    android:background="@color/app_bg">
 
     <!-- Gradient Header -->
     <com.google.android.material.appbar.AppBarLayout
@@ -20,7 +20,7 @@
             android:background="@android:color/transparent"
             app:title="Latest Updates"
             app:titleCentered="true"
-            app:titleTextColor="@android:color/white" />
+            app:titleTextColor="@color/text_on_header" />
 
         <!-- Header content -->
         <LinearLayout
@@ -44,7 +44,7 @@
                     android:contentDescription="Updates"
                     android:padding="14dp"
                     android:src="@drawable/ic_update"
-                    app:tint="#1A237E" />
+                    app:tint="@color/accent_navy" />
             </FrameLayout>
 
             <TextView
@@ -54,7 +54,7 @@
                 android:fontFamily="serif"
                 android:letterSpacing="0.05"
                 android:text="What's New"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_on_header"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                 android:layout_marginTop="6dp"
                 android:alpha="0.85"
                 android:text="Stay updated with new content"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_on_header"
                 android:textSize="13sp" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -83,7 +83,7 @@
         android:layout_marginTop="-32dp"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="14dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/card_bg"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -114,7 +114,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="serif"
                     android:text="Recent Updates"
-                    android:textColor="#1A237E"
+                    android:textColor="@color/text_primary"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
                     android:alpha="0.6"
                     android:fontFamily="serif"
                     android:text="newest first"
-                    android:textColor="#1A237E"
+                    android:textColor="@color/text_primary"
                     android:textSize="11sp"
                     android:textStyle="italic" />
             </LinearLayout>
@@ -140,7 +140,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="20dp"
-                android:background="#E0E3EA" />
+                android:background="@color/divider" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
