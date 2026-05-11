@@ -23,7 +23,7 @@
             android:contentDescription="Profile"
             android:padding="10dp"
             android:src="@drawable/ic_profile"
-            app:tint="#1A237E" />
+            app:tint="@color/accent_navy" />
     </FrameLayout>
 
     <TextView
@@ -33,7 +33,7 @@
         android:fontFamily="serif"
         android:letterSpacing="0.04"
         android:text="@string/app_name"
-        android:textColor="@android:color/white"
+        android:textColor="@color/text_on_header"
         android:textSize="17sp"
         android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
         android:alpha="0.85"
         android:fontFamily="serif"
         android:text="selflearning@email.com"
-        android:textColor="@android:color/white"
+        android:textColor="@color/text_on_header"
         android:textSize="13sp"
         android:textStyle="italic" />
 
