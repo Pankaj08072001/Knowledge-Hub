@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F0F2F8">
+    android:background="@color/app_bg">
 
     <!-- Gradient App Bar -->
     <com.google.android.material.appbar.AppBarLayout
@@ -20,7 +20,7 @@
             android:background="@android:color/transparent"
             app:title="My Profile"
             app:titleCentered="true"
-            app:titleTextColor="@android:color/white" />
+            app:titleTextColor="@color/text_on_header" />
 
         <!-- Header content (avatar + caption) -->
         <LinearLayout
@@ -44,7 +44,7 @@
                     android:contentDescription="Profile Avatar"
                     android:padding="14dp"
                     android:src="@drawable/ic_profile"
-                    app:tint="#1A237E" />
+                    app:tint="@color/accent_navy" />
             </FrameLayout>
 
             <TextView
@@ -54,7 +54,7 @@
                 android:fontFamily="serif"
                 android:letterSpacing="0.05"
                 android:text="Personal Details"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_on_header"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                 android:layout_marginTop="6dp"
                 android:alpha="0.85"
                 android:text="Manage your account information"
-                android:textColor="@android:color/white"
+                android:textColor="@color/text_on_header"
                 android:textSize="13sp" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -90,7 +90,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
-            app:cardBackgroundColor="@android:color/white"
+            app:cardBackgroundColor="@color/card_bg"
             app:cardCornerRadius="20dp"
             app:cardElevation="10dp">
 
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="serif"
                     android:text="Edit Profile"
-                    android:textColor="#1A237E"
+                    android:textColor="@color/text_primary"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -129,10 +129,10 @@
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#1A237E"
-                    app:hintTextColor="#1A237E"
+                    app:boxStrokeColor="@color/accent_navy"
+                    app:hintTextColor="@color/accent_navy"
                     app:startIconDrawable="@drawable/ic_person"
-                    app:startIconTint="#1A237E"
+                    app:startIconTint="@color/accent_navy"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -140,7 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPersonName"
-                        android:textColor="#212121" />
+                        android:textColor="@color/text_body" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Email -->
@@ -153,10 +153,10 @@
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#1A237E"
-                    app:hintTextColor="#1A237E"
+                    app:boxStrokeColor="@color/accent_navy"
+                    app:hintTextColor="@color/accent_navy"
                     app:startIconDrawable="@drawable/ic_email"
-                    app:startIconTint="#1A237E"
+                    app:startIconTint="@color/accent_navy"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -164,7 +164,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
-                        android:textColor="#212121" />
+                        android:textColor="@color/text_body" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Phone -->
@@ -177,10 +177,10 @@
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#1A237E"
-                    app:hintTextColor="#1A237E"
+                    app:boxStrokeColor="@color/accent_navy"
+                    app:hintTextColor="@color/accent_navy"
                     app:startIconDrawable="@drawable/ic_phone"
-                    app:startIconTint="#1A237E"
+                    app:startIconTint="@color/accent_navy"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -188,7 +188,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="phone"
-                        android:textColor="#212121" />
+                        android:textColor="@color/text_body" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- City -->
@@ -201,10 +201,10 @@
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#1A237E"
-                    app:hintTextColor="#1A237E"
+                    app:boxStrokeColor="@color/accent_navy"
+                    app:hintTextColor="@color/accent_navy"
                     app:startIconDrawable="@drawable/ic_city"
-                    app:startIconTint="#1A237E"
+                    app:startIconTint="@color/accent_navy"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -212,7 +212,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textPostalAddress"
-                        android:textColor="#212121" />
+                        android:textColor="@color/text_body" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Address -->
@@ -225,10 +225,10 @@
                     app:boxCornerRadiusBottomStart="12dp"
                     app:boxCornerRadiusTopEnd="12dp"
                     app:boxCornerRadiusTopStart="12dp"
-                    app:boxStrokeColor="#1A237E"
-                    app:hintTextColor="#1A237E"
+                    app:boxStrokeColor="@color/accent_navy"
+                    app:hintTextColor="@color/accent_navy"
                     app:startIconDrawable="@drawable/ic_address"
-                    app:startIconTint="#1A237E"
+                    app:startIconTint="@color/accent_navy"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:inputType="textPostalAddress|textMultiLine"
                         android:maxLines="3"
-                        android:textColor="#212121" />
+                        android:textColor="@color/text_body" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Save Button -->
@@ -251,7 +251,7 @@
                     android:letterSpacing="0.1"
                     android:stateListAnimator="@null"
                     android:text="SAVE CHANGES"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/text_on_header"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
@@ -263,7 +263,7 @@
                     android:alpha="0.6"
                     android:fontFamily="serif"
                     android:text="— Keep your details up to date —"
-                    android:textColor="#1A237E"
+                    android:textColor="@color/text_primary"
                     android:textSize="12sp"
                     android:textStyle="italic" />
 
